@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SongsGateway {
     List<Songs> getAllSongs();
+
+    Songs saveSong(Songs song);
 }

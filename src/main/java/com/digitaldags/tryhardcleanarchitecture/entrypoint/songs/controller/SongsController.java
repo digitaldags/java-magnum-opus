@@ -1,11 +1,11 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.controller;
 
+import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.AddSongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.SongsResponseDto;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.service.SongsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +18,10 @@ public class SongsController {
     @GetMapping
     List<SongsResponseDto> getAllSongs() {
         return service.getAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<?> saveSong(@RequestBody AddSongRequestDto requestDto) {
+        return ResponseEntity.ok(service.addSong(requestDto));
     }
 }
