@@ -20,6 +20,11 @@ public class SongsController {
         return service.getAll();
     }
 
+    @GetMapping(value = "/{id}")
+    SongsResponseDto getSong(@PathVariable Long id) {
+        return service.getSong(id);
+    }
+
     @PostMapping
     public ResponseEntity<?> saveSong(@RequestBody AddSongRequestDto requestDto) {
         return ResponseEntity.ok(service.addSong(requestDto));

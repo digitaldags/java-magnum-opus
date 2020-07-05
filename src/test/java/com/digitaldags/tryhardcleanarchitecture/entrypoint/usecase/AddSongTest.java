@@ -24,7 +24,7 @@ public class AddSongTest {
 
     @Before
     public void setUp() {
-        song = new Songs("Mambo No. 5", "Lou Bega", "A Little Bit of Mambo");
+        song = new Songs(1L, "Mambo No. 5", "Lou Bega", "A Little Bit of Mambo");
         addSong = new AddSongImpl(gateway);
     }
 

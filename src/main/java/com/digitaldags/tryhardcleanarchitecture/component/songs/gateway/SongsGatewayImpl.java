@@ -23,6 +23,12 @@ public class SongsGatewayImpl implements SongsGateway {
     }
 
     @Override
+    public Songs getSong(Long id) {
+        SongsEntity entity = repository.getOne(id);
+        return mapper.toDomain(entity);
+    }
+
+    @Override
     public Songs saveSong(Songs song) {
         SongsEntity entity = repository.save(addSongsMapper.toEntity(song));
         return mapper.toDomain(entity);

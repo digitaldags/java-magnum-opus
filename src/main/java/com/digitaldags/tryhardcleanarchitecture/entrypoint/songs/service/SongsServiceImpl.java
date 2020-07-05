@@ -6,6 +6,7 @@ import com.digitaldags.tryhardcleanarchitecture.component.songs.model.domain.Son
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.AddSongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.SongsResponseDto;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.AddSong;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.GetSong;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.GetSongs;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,17 @@ public class SongsServiceImpl implements SongsService {
     private final SongsMapper mapper;
     private final AddSongsMapper addSongsMapper;
     private final GetSongs getSongs;
+    private final GetSong getSong;
     private final AddSong addSong;
 
     @Override
     public List<SongsResponseDto> getAll() {
         return mapper.toResponseDtoList(getSongs.execute());
+    }
+
+    @Override
+    public SongsResponseDto getSong(Long id) {
+        return mapper.toResponseDto(getSong.execute(id));
     }
 
     @Override
