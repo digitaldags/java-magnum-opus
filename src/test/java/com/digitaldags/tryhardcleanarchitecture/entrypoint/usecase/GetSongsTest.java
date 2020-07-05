@@ -27,7 +27,7 @@ public class GetSongsTest {
 
     @Before
     public void setUp() {
-        songs.add(new Songs("Nandemonaiya", "RADWIMPS", "Kimi No Nawa OST"));
+        songs.add(new Songs(1L,"Nandemonaiya", "RADWIMPS", "Kimi No Nawa OST"));
         getSongs = new GetSongsImpl(gateway);
     }
 
