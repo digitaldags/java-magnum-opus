@@ -9,5 +9,7 @@ import java.util.List;
 public interface SongsService {
     List<SongsResponseDto> getAll();
 
+    SongsResponseDto getSong(Long id);
+
     ResponseEntity<?> addSong(AddSongRequestDto dto);
 }

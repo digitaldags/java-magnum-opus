@@ -7,5 +7,7 @@ import java.util.List;
 public interface SongsGateway {
     List<Songs> getAllSongs();
 
+    Songs getSong(Long id);
+
     Songs saveSong(Songs song);
 }

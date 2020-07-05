@@ -13,5 +13,7 @@ public interface SongsMapper {
 
     List<Songs> toDomainList(List<SongsEntity> entities);
 
+    SongsResponseDto toResponseDto(Songs domain);
+
     List<SongsResponseDto> toResponseDtoList(List<Songs> domain);
 }
