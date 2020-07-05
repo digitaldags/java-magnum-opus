@@ -7,4 +7,4 @@ CREATE TABLE SONGS(
     ALBUM VARCHAR(250) NOT NULL
 );
 
-INSERT INTO DD_SONGS(ID, TITLE, ARTIST, ALBUM) VALUES (1, 'Toss A Coin To Your Witcher', 'Joey Batey', 'The Witcher OST');
+-- INSERT INTO DD_SONGS(ID, TITLE, ARTIST, ALBUM) VALUES (1, 'Toss A Coin To Your Witcher', 'Joey Batey', 'The Witcher OST');
