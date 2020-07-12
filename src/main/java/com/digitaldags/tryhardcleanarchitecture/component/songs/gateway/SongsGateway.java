@@ -12,4 +12,6 @@ public interface SongsGateway {
     Songs saveSong(Songs song);
 
     Songs update(Long id, Songs song);
+
+    void delete(Long id);
 }

@@ -34,4 +34,9 @@ public class SongsController {
     SongsResponseDto updateSong(@PathVariable Long id, @RequestBody SongRequestDto dto) {
         return service.updateSong(id, dto);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> deleteSong(@PathVariable Long id) {
+        return ResponseEntity.ok(service.deleteSong(id));
+    }
 }

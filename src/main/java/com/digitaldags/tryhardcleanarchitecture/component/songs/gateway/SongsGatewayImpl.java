@@ -39,4 +39,9 @@ public class SongsGatewayImpl implements SongsGateway {
         repository.update(id, song.getTitle(), song.getArtist(), song.getAlbum());
         return mapper.toDomain(repository.getOne(id));
     }
+
+    @Override
+    public void delete(Long id) {
+        repository.delete(repository.getOne(id));
+    }
 }

@@ -5,10 +5,7 @@ import com.digitaldags.tryhardcleanarchitecture.component.songs.mapper.SongsMapp
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.domain.Songs;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.SongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.response.SongsResponseDto;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.AddSong;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.GetSong;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.GetSongs;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.UpdateSong;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,6 +21,7 @@ public class SongsServiceImpl implements SongsService {
     private final GetSong getSong;
     private final AddSong addSong;
     private final UpdateSong updateSong;
+    private final DeleteSong deleteSong;
 
     @Override
     public List<SongsResponseDto> getAll() {
@@ -44,5 +42,11 @@ public class SongsServiceImpl implements SongsService {
     @Override
     public SongsResponseDto updateSong(Long id, SongRequestDto dto) {
         return mapper.toResponseDto(updateSong.execute(id, addSongsMapper.toDomain(dto)));
+    }
+
+    @Override
+    public ResponseEntity<?> deleteSong(Long id) {
+        deleteSong.execute(id);
+        return ResponseEntity.ok("Song Successfully Removed!");
     }
 }
