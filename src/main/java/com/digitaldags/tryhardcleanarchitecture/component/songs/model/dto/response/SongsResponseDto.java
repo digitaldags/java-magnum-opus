@@ -1,4 +1,4 @@
-package com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto;
+package com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
-public class AddSongRequestDto {
+public class SongsResponseDto {
+    private Long id;
     private String title;
     private String artist;
     private String album;
