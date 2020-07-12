@@ -1,6 +1,6 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.controller;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.AddSongRequestDto;
+import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.SongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.response.SongsResponseDto;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.service.SongsService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,12 @@ public class SongsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> saveSong(@RequestBody AddSongRequestDto requestDto) {
+    public ResponseEntity<?> saveSong(@RequestBody SongRequestDto requestDto) {
         return ResponseEntity.ok(service.addSong(requestDto));
+    }
+
+    @PutMapping(value = "/{id}")
+    SongsResponseDto updateSong(@PathVariable Long id, @RequestBody SongRequestDto dto) {
+        return service.updateSong(id, dto);
     }
 }

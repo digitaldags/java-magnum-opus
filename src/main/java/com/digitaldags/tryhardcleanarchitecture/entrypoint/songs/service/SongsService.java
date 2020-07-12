@@ -1,6 +1,6 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.service;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.AddSongRequestDto;
+import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.SongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.response.SongsResponseDto;
 import org.springframework.http.ResponseEntity;
 
@@ -11,5 +11,7 @@ public interface SongsService {
 
     SongsResponseDto getSong(Long id);
 
-    ResponseEntity<?> addSong(AddSongRequestDto dto);
+    ResponseEntity<?> addSong(SongRequestDto dto);
+
+    SongsResponseDto updateSong(Long id, SongRequestDto dto);
 }

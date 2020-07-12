@@ -10,4 +10,6 @@ public interface SongsGateway {
     Songs getSong(Long id);
 
     Songs saveSong(Songs song);
+
+    Songs update(Long id, Songs song);
 }
