@@ -1,7 +1,7 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.service;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.AddSongRequestDto;
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.SongsResponseDto;
+import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.request.AddSongRequestDto;
+import com.digitaldags.tryhardcleanarchitecture.component.songs.model.dto.response.SongsResponseDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
