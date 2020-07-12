@@ -14,4 +14,6 @@ public interface SongsService {
     ResponseEntity<?> addSong(SongRequestDto dto);
 
     SongsResponseDto updateSong(Long id, SongRequestDto dto);
+
+    ResponseEntity<?> deleteSong(Long id);
 }
