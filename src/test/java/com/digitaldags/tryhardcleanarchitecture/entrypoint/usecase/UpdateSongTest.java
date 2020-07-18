@@ -1,9 +1,9 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.usecase;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.gateway.SongsGateway;
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.domain.Songs;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.UpdateSong;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.UpdateSongImpl;
+import com.digitaldags.tryhardcleanarchitecture.component.song.gateway.SongGateway;
+import com.digitaldags.tryhardcleanarchitecture.component.song.model.domain.Song;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.UpdateSong;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.UpdateSongImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,23 +18,23 @@ public class UpdateSongTest {
     private UpdateSong updateSong;
 
     @Mock
-    private SongsGateway gateway;
+    private SongGateway gateway;
 
-    private Songs song;
+    private Song song;
 
-    private Songs correctedTypo;
+    private Song correctedTypo;
 
     @Before
     public void setUp() {
-        song = new Songs(1L, "Nandemonaiya", "RADWIMPS", "Kimi NoNawa OST");
-        correctedTypo = new Songs(1L, "Nandemonaiya", "RADWIMPS", "Kimi No Nawa OST");
+        song = new Song(1L, "Nandemonaiya", "RADWIMPS", "Kimi NoNawa OST");
+        correctedTypo = new Song(1L, "Nandemonaiya", "RADWIMPS", "Kimi No Nawa OST");
         updateSong = new UpdateSongImpl(gateway);
     }
 
     @Test
     public void execute_updateSong_returnsUpdatedSong() throws Exception {
         when(gateway.update(1L, correctedTypo)).thenReturn(correctedTypo);
-        Songs updatedSong = updateSong.execute(1L, correctedTypo);
+        Song updatedSong = updateSong.execute(1L, correctedTypo);
         assertThat(updatedSong).isEqualTo(correctedTypo);
     }
 }
