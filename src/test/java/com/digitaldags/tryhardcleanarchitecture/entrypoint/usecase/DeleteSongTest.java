@@ -1,8 +1,8 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.usecase;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.gateway.SongsGateway;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.DeleteSong;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.DeleteSongImpl;
+import com.digitaldags.tryhardcleanarchitecture.component.song.gateway.SongGateway;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.DeleteSong;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.DeleteSongImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ public class DeleteSongTest {
     private DeleteSong deleteSong;
 
     @Mock
-    private SongsGateway gateway;
+    private SongGateway gateway;
 
     @Before
     public void setUp() {

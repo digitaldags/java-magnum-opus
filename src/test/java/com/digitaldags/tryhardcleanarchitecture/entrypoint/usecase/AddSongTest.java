@@ -1,9 +1,9 @@
 package com.digitaldags.tryhardcleanarchitecture.entrypoint.usecase;
 
-import com.digitaldags.tryhardcleanarchitecture.component.songs.gateway.SongsGateway;
-import com.digitaldags.tryhardcleanarchitecture.component.songs.model.domain.Songs;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.AddSong;
-import com.digitaldags.tryhardcleanarchitecture.entrypoint.songs.usecase.AddSongImpl;
+import com.digitaldags.tryhardcleanarchitecture.component.song.gateway.SongGateway;
+import com.digitaldags.tryhardcleanarchitecture.component.song.model.domain.Song;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.AddSong;
+import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.AddSongImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,20 +18,20 @@ public class AddSongTest {
     private AddSong addSong;
 
     @Mock
-    private SongsGateway gateway;
+    private SongGateway gateway;
 
-    Songs song = new Songs();
+    Song song = new Song();
 
     @Before
     public void setUp() {
-        song = new Songs(1L, "Mambo No. 5", "Lou Bega", "A Little Bit of Mambo");
+        song = new Song(1L, "Mambo No. 5", "Lou Bega", "A Little Bit of Mambo");
         addSong = new AddSongImpl(gateway);
     }
 
     @Test
     public void execute_addSongs_returnsSongAdded() throws Exception {
         when(gateway.saveSong(song)).thenReturn(song);
-        Songs addedSong = addSong.execute(song);
+        Song addedSong = addSong.execute(song);
         assertThat(addedSong).isEqualTo(song);
     }
 }
