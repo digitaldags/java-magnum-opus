@@ -6,6 +6,8 @@ import com.digitaldags.tryhardcleanarchitecture.component.song.model.domain.Song
 import com.digitaldags.tryhardcleanarchitecture.component.song.model.dto.request.SongRequestDto;
 import com.digitaldags.tryhardcleanarchitecture.component.song.model.dto.response.SongResponseDto;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.*;
+import com.digitaldags.tryhardcleanarchitecture.exception.common.GenericException;
+import com.digitaldags.tryhardcleanarchitecture.exception.song.SongException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,11 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public SongResponseDto getSong(Long id) {
-        return mapper.toResponseDto(getSong.execute(id));
+        try {
+            return mapper.toResponseDto(getSong.execute(id));
+        } catch (SongException e) {
+            throw new GenericException(e.getMessage());
+        }
     }
 
     @Override

@@ -23,9 +23,13 @@ public class SongGatewayImpl implements SongGateway {
     }
 
     @Override
-    public Song getSong(Long id) {
-        SongEntity entity = repository.getOne(id);
-        return mapper.toDomain(entity);
+    public Song getSong(Long id) throws Exception {
+        try {
+            SongEntity entity = repository.getOne(id);
+            return mapper.toDomain(entity);
+        } catch (Exception e) {
+            throw new Exception();
+        }
     }
 
     @Override

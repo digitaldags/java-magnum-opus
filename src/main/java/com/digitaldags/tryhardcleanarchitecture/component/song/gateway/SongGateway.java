@@ -7,7 +7,7 @@ import java.util.List;
 public interface SongGateway {
     List<Song> getAllSongs();
 
-    Song getSong(Long id);
+    Song getSong(Long id) throws Exception;
 
     Song saveSong(Song song);
 
