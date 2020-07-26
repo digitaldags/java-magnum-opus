@@ -4,6 +4,7 @@ import com.digitaldags.tryhardcleanarchitecture.component.song.gateway.SongGatew
 import com.digitaldags.tryhardcleanarchitecture.component.song.model.domain.Song;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.GetSong;
 import com.digitaldags.tryhardcleanarchitecture.entrypoint.song.usecase.GetSongImpl;
+import com.digitaldags.tryhardcleanarchitecture.exception.song.SongException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,5 +43,11 @@ public class GetSongTest {
         when(gateway.getSong(anyLong())).thenReturn(song);
         Song nandemonaiya = getSong.execute(1L);
         assertThat(nandemonaiya).isEqualTo(new Song(1L, "Nandemonaiya", "RADWIMPS", "Kimi No Nawa OST"));
+    }
+
+    @Test(expected = SongException.class)
+    public void execute_getSongNotInList_throwsSongException() throws Exception {
+        when(gateway.getSong(anyLong())).thenThrow(new SongException("Song not found."));
+        getSong.execute(3L);
     }
 }
