@@ -1,5 +1,6 @@
 package com.digitaldags.tryhardcleanarchitecture.component.song.model.entity;
 
+import com.digitaldags.tryhardcleanarchitecture.component.common.model.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamicUpdate
-public class SongEntity {
+public class SongEntity extends BaseEntity {
     @Id
     @GeneratedValue
     private Long id;
